@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
     "mocha": "^2.3.4",
     "should": "^7.1.1",
-    "sinon": "^1.17.2"
+    "sinon": "^1.17.2",
+    "supertest": "^1.1.0"
   }
 }

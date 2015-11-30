@@ -43,3 +43,36 @@ describe('add3', function() {
     adderMock.verify();
   });
 });
+
+// API test
+var supertest = require('supertest'),
+    express = require('express'),
+    bodyParser = require('body-parser'),
+    app = express(),
+    client = supertest(app);
+
+app.post(
+  '/add',
+  bodyParser.json(),
+  function(req, res) {
+    var value = add(req.body.x, req.body.y);
+    res.status(200).json({value: value});
+  }
+);
+
+describe('app', function() {
+  it('should add two numbers', function(done) {
+    client
+    .post('/add')
+    .type('json')
+    .send({
+      x: 1,
+      y: 1,
+    })
+    .expect(200)
+    .expect(function(res) {
+      res.body.value.should.equal(2);
+    })
+    .end(done);
+  });
+});

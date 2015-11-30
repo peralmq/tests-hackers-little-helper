@@ -6,6 +6,7 @@ Examples showing diffrent types of tests.
 
 * [Unit tests]()
 * [Mock tests]()
+* [API tests]()
 
 ## Usage
 
